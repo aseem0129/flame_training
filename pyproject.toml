@@ -1,0 +1,42 @@
+[project]
+name = "counterpart"
+version = "0.1.0"
+description = "Local-only FLAME avatar generation from selfies"
+authors = [
+    {name = "Counterpart Team"}
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "opencv-python>=4.8.0",
+    "mediapipe>=0.10.0",
+    "trimesh>=4.0.0",
+    "tqdm>=4.66.0",
+    "pydantic>=2.0.0",
+    "numpy>=1.24.0",
+    "pillow>=10.0.0",
+    "pyopengl>=3.1.0",
+]
+
+[project.optional-dependencies]
+full = [
+    "kaolin>=0.15.0",
+    "pytorch3d>=0.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --strict-markers" 
